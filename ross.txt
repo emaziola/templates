@@ -2,3 +2,4 @@ Hi Katy
 Hi James
 Hi Laura
 I am learning git woohoo!
+We are making changes!
