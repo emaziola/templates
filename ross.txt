@@ -1,8 +1,0 @@
-Hi Katy
-Hi James
-Hi Laura
-I am learning git woohoo!
-We are making changes!
-Ross is making changes to ross.txt!
-Jesus christ!
-This is another line cos im cool
