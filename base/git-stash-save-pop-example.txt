@@ -1,1 +1,1 @@
-This is a single line and I want this to throw an error to show the power of git stash!
+Emma is making a change too
