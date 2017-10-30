@@ -1,1 +1,1 @@
-This is a single line and I want this to throw an error to show the power of git stash!
+I've taken this line out to try and throw the error!
