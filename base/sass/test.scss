@@ -1,0 +1,243 @@
+$pages: 'home', 'about', 'contact', 'foo';
+$selector: ();
+
+/* Long */
+@each $item in $pages {
+  $selector: $selector unquote(".#{$item} .nav-#{$item}");
+
+  // Add comma if not dealing with the last item of list
+  @if $item != nth($pages, length($pages)) {
+    $selector: $selector unquote(",");
+  }
+}
+
+#{$selector} {
+	color:red;
+}
+
+/* Clean */
+$selector: ();
+
+@each $item in $pages {
+  $selector: append($selector, unquote('.#{$item} .nav-#{$item}'), 'comma');
+}
+
+#{$selector} {
+	color:blue;
+}
+
+/* Implicit appending */
+$selector: ();
+
+@each $item in $pages {
+  $selector: $selector, unquote('.#{$item} .nav-#{$item}');
+}
+
+#{$selector} {
+	color:black;
+}
+
+/*
+ * Agile departmental themes format (SASS arrays have a base index of 1)
+ *
+ * Theme array format
+ * 1. purple - Slug
+ * 2. #a364d9 - Main colour
+ * 3. #4e504b - Secondary for button hovers etc.
+ * 4. #7c42ba - Case Study triangle accent & footer icons
+ * 5. #dad1e3 - Case Study sub-content inner
+ * 6. #ffffff - Page Footer List dt
+ * 7. #?????? - Additional colour for yellow buttons where white text doesn't work
+*/
+
+//$purple_theme: 'purple', #a364d9, #4e504b, #7c42ba, #dad1e3, #ffffff;
+// $dark_purple_theme: 'dark-purple', #813375, #4e504b, #66215c, #e3d1e0, #ffffff;
+// $pink_theme: 'pink', #ee6579, #4e505b, #7c42ba, #ce425d, #ffffff;
+// $light_red_theme: 'light-red', #db3937, #4e504b, #ba1a1a, #e3d1d1, #ffffff;
+// $red_theme: 'red', #8a1532, #4e504b, #6c1429, #e3d1d5, #ffffff;
+// $orange_theme: 'orange', #f4641d, #4e504b, #d64e12, #e3d7d1, #ffffff;
+// $clay_theme: 'clay', #d66b2a, #4e504b, #b1591f, #e3d8d1, #ffffff;
+// $gold_theme: 'gold', #f8a227, #4e504b, #db841d, #e3dbd1, #ffffff;
+// $yellow_theme: 'yellow', #fecc2f, #4e504b, #d8a516, #e3dfd1, #ffffff, #231f20;
+// $green_theme: 'green', #369b47, #4e504b, #2a873a, #d1e3d4, #ffffff;
+// $light_green_theme: 'light-green', #aec423, #4e505b, #a1af17, #e1e3d1, #ffffff;
+// $olive_theme: 'olive', #5e7033, #4e504b, #3d4e1e, #dde3d1, #ffffff;
+// $teal_theme: 'teal', #04979b, #4e504b, #0b7779, #d1e2e3, #ffffff;
+// $cyan_theme: 'cyan', #eebeb7, #4e504b, #25a59b, #d1e3e2, #ffffff;
+// $blue_theme: 'blue', #40a4d8, #4e504b, #2c92bf, #d1dde3, #ffffff;
+// $dark_blue_theme: 'dark-blue', #09112e, #4e504b, #050c1e, #09112e, #ffffff;
+// $royal_blue_theme: 'royal-blue', #1e196a, #4e504b, #09004c, #1e196a, #ffffff;
+// $fuchsia_theme: 'fuchsia', #d0157d, #4e504b, #ad0768, #e3d1db, #ffffff;
+
+$themes:
+	(
+		$purple_theme,
+		$dark_purple_theme,
+		$pink_theme,
+		$light_red_theme,
+		$red_theme,
+		$orange_theme,
+		$clay_theme,
+		$gold_theme,
+		$yellow_theme,
+		$green_theme,
+		$light_green_theme,
+		$olive_theme,
+		$teal_theme,
+		$cyan_theme,
+		$blue_theme,
+		$dark_blue_theme,
+		$royal_blue_theme,
+		$fuchsia_theme
+	);
+
+@each $theme in $themes {
+	/* Output our #{nth($theme, 1)}-theme styles! */
+	.#{nth($theme, 1)}-theme.content-page #masthead .masthead-inner,
+	.#{nth($theme, 1)}-theme #sub-content-contact,
+	.#{nth($theme, 1)}-theme #content-container a.button,
+	.#{nth($theme, 1)}-theme button,
+	.#{nth($theme, 1)}-theme button.button,
+	.#{nth($theme, 1)}-theme input[type="submit"],
+	.#{nth($theme, 1)}-theme .sub-content-panel,
+	.#{nth($theme, 1)}-theme.single-vacancy #vacancy-specification-panel.sub-content-panel,
+	.#{nth($theme, 1)}-theme input[type="submit"]:focus,
+	.#{nth($theme, 1)}-theme button:focus,
+	.#{nth($theme, 1)}-theme .button:focus,
+	.#{nth($theme, 1)}-theme #content-container a.button:focus,
+	li.case-study-listing-item.#{nth($theme, 1)}-theme .case-study-inner{
+	  background:#{nth($theme, 2)};
+	  @if #{nth($theme, 1) == 'yellow'} {
+	  	color:#{nth($theme, 7)};
+	  }
+	  else{
+	  	color:#{nth($theme, 6)};
+	  }
+	}
+
+	li.case-study-listing-item.#{nth($theme, 1)}-theme .case-study-inner:before{
+	  border-right-color:#{nth($theme, 4)};
+	}
+
+	.#{nth($theme, 1)}-theme #content-container a.button:before,
+	.#{nth($theme, 1)}-theme button:before,
+	.#{nth($theme, 1)}-theme button.button:before,
+	.#{nth($theme, 1)}-theme input[type="submit"]:before,
+	.#{nth($theme, 1)}-theme #content-container a.button:after,
+	.#{nth($theme, 1)}-theme button:after,
+	.#{nth($theme, 1)}-theme button.button:after,
+	.#{nth($theme, 1)}-theme input[type="submit"]:after{
+	  border-left-color:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme h1,
+	.#{nth($theme, 1)}-theme h2,
+	.#{nth($theme, 1)}-theme h3,
+	.#{nth($theme, 1)}-theme h4,
+	.#{nth($theme, 1)}-theme h5,
+	.#{nth($theme, 1)}-theme h6,
+	.#{nth($theme, 1)}-theme #content-container form label,
+	.#{nth($theme, 1)}-theme #content-container a,
+	.#{nth($theme, 1)}-theme #sub-content-social-list dt,
+	.#{nth($theme, 1)}-theme #sub-content-contact a.button,
+	.#{nth($theme, 1)}-theme blockquote footer,
+	.#{nth($theme, 1)}-theme table.em-calendar td.eventful a,
+	.#{nth($theme, 1)}-theme table.em-calendar td.eventful-today a,
+	.#{nth($theme, 1)}-theme ul.vacancy-fields li span.label,
+	.#{nth($theme, 1)}-theme ul#careers-panels-list li.career-panel a.read-more,
+	.#{nth($theme, 1)}-theme dl.page-footer-list dt,
+	.#{nth($theme, 1)}-theme dl.page-footer-list.vacancy-key-reqs-list dt,
+	.#{nth($theme, 1)}-theme ul#careers-panels-list li.career-panel h4.career-panel-title a,
+	.#{nth($theme, 1)}-theme blockquote p:before,
+	.#{nth($theme, 1)}-theme blockquote p:last-of-type:after,
+	.#{nth($theme, 1)}-theme ol li:before{
+	  color:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme dl.page-footer-list dt{
+	  border-bottom-color:#{nth($theme, 6)};
+	  color:#{nth($theme, 6)};
+	}
+
+	.#{nth($theme, 1)}-theme dl.page-footer-list.vacancy-key-reqs-list dt{
+	  border-bottom-color:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme #case-study-download .icon-container,
+	.#{nth($theme, 1)}-theme #training-course-download .icon-container{
+	  background:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme #sub-content-social-list dd a,
+	.#{nth($theme, 1)}-theme h4.case-study-section-title{
+	  border-color:#{nth($theme, 2)};
+	}
+
+	.single-case-study.#{nth($theme, 1)}-theme #sub-content-right .sub-content-inner{
+	  background:#{nth($theme, 5)};
+	}
+
+	.#{nth($theme, 1)}-theme #sub-content-contact a.button{
+	  background:#ffffff;
+	}
+
+	.#{nth($theme, 1)}-theme.single-vacancy #masthead .masthead-inner .masthead-header{
+	  background:#{nth($theme, 2)};
+	  opacity:0.5;
+	  filter:alpha(opacity=50);
+	}
+
+	.#{nth($theme, 1)}-theme #sub-content-social-list .icon,
+	.#{nth($theme, 1)}-theme #sub-content-contact a.button .icon,
+	.#{nth($theme, 1)}-theme dl.page-footer-list.vacancy-key-reqs-list dd .icon,
+	.#{nth($theme, 1)}-theme ul.page-footer-list.vacancy-key-reqs-list li .icon{
+	  fill:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme div.sub-content-footer .icon{
+	  fill:#{nth($theme, 4)};
+	}
+
+	.#{nth($theme, 1)}-theme dl.page-footer-list,
+	.#{nth($theme, 1)}-theme ul.page-footer-list{
+	  background:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme input[type="submit"]:hover,
+	.#{nth($theme, 1)}-theme button:hover,
+	.#{nth($theme, 1)}-theme .button:hover,
+	.#{nth($theme, 1)}-theme #content-container a.button:hover{
+	  background:#{nth($theme, 3)};
+	}
+
+	.#{nth($theme, 1)}-theme input[type="submit"]:hover:before,
+	.#{nth($theme, 1)}-theme button:hover:before,
+	.#{nth($theme, 1)}-theme .button:hover:before,
+	.#{nth($theme, 1)}-theme #content-container a.button:hover:before,
+	.#{nth($theme, 1)}-theme input[type="submit"]:hover:after,
+	.#{nth($theme, 1)}-theme button:hover:after,
+	.#{nth($theme, 1)}-theme .button:hover:after,
+	.#{nth($theme, 1)}-theme #content-container a.button:hover:after{
+	  border-left-color:#{nth($theme, 3)};
+	}
+
+	.#{nth($theme, 1)}-theme ul.events-listings li .event-time-details{
+	  border-top-color:#{nth($theme, 2)};
+	  border-bottom-color:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme.single-training-course ul.course-duration-list li .icon,
+	.#{nth($theme, 1)}-theme.single-training-course ul.course-attendance-type-list li .icon,
+	.#{nth($theme, 1)}-theme.single-training-course ul.learning-objectives-list li .icon{
+	  fill:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme table.training-course-dates-table th{
+	  color:#{nth($theme, 2)};
+	}
+
+	.#{nth($theme, 1)}-theme #content-inner-row-main .countdown-clock-container dl.countdown-clock-list dd{
+	  background:#{nth($theme, 2)};
+	  color:#ffffff;
+	}
+}

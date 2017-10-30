@@ -1,0 +1,54 @@
+// Variables
+// Agile departmental themes format (SASS arrays have a base index of 1)
+//
+// Theme array format
+// 1. purple - Slug
+// 2. #a364d9 - Main colour
+// 3. #4e504b - Secondary for button hovers etc.
+// 4. #7c42ba - Case Study triangle accent & footer icons
+// 5. #dad1e3 - Case Study sub-content inner
+// 6. #ffffff - Page Footer List dt
+// 7. #?????? - Additional colour for yellow buttons where white text doesn't work
+//
+
+$purple_theme: 'purple', #a364d9, #4e504b, #7c42ba, #dad1e3, #ffffff;
+$dark_purple_theme: 'dark-purple', #813375, #4e504b, #66215c, #e3d1e0, #ffffff;
+$pink_theme: 'pink', #ee6579, #4e505b, #ce425d, #ce425d, #ffffff;
+$light_red_theme: 'light-red', #db3937, #4e504b, #ba1a1a, #e3d1d1, #ffffff;
+$red_theme: 'red', #8a1532, #4e504b, #6c1429, #e3d1d5, #ffffff;
+$orange_theme: 'orange', #f4641d, #4e504b, #d64e12, #e3d7d1, #ffffff;
+$clay_theme: 'clay', #d66b2a, #4e504b, #b1591f, #e3d8d1, #ffffff;
+$gold_theme: 'gold', #f8a227, #4e504b, #db841d, #e3dbd1, #ffffff;
+$yellow_theme: 'yellow', #fecc2f, #4e504b, #d8a516, #e3dfd1, #ffffff, #231f20;
+// $green_theme: 'green', #369b47, #4e504b, #2a873a, #d1e3d4, #ffffff;
+$green_theme: 'green', #2da855, #4e504b, #2a873a, #d1e3d4, #ffffff;
+$light_green_theme: 'light-green', #aec423, #4e505b, #a1af17, #e1e3d1, #ffffff;
+$olive_theme: 'olive', #5e7033, #4e504b, #3d4e1e, #dde3d1, #ffffff;
+$teal_theme: 'teal', #04979b, #4e504b, #0b7779, #d1e2e3, #ffffff;
+$cyan_theme: 'cyan', #33beb7, #4e504b, #25a59b, #d1e3e2, #ffffff;
+$blue_theme: 'blue', #40a4d8, #4e504b, #2c92bf, #d1dde3, #ffffff;
+$dark_blue_theme: 'dark-blue', #09112e, #4e504b, #050c1e, #09112e, #ffffff;
+$royal_blue_theme: 'royal-blue', #1e196a, #4e504b, #09004c, #1e196a, #ffffff;
+$fuchsia_theme: 'fuchsia', #d0157d, #4e504b, #ad0768, #e3d1db, #ffffff;
+
+$themes:
+  (
+    $purple_theme,
+    $dark_purple_theme,
+    $pink_theme,
+    $light_red_theme,
+    $red_theme,
+    $orange_theme,
+    $clay_theme,
+    $gold_theme,
+    $yellow_theme,
+    $green_theme,
+    $light_green_theme,
+    $olive_theme,
+    $teal_theme,
+    $cyan_theme,
+    $blue_theme,
+    $dark_blue_theme,
+    $royal_blue_theme,
+    $fuchsia_theme
+  );
